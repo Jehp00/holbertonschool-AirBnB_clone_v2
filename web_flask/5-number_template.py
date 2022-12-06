@@ -47,8 +47,7 @@ def number_n(n):
 @app.route('/number_template/<int:n>')
 def num_templeates(n):
     """return an index.html if n is a number"""
-    if isinstance(n, int):
-        return render_template('5-number.html', data=n)
+    return render_template('5-number.html', n=n)
 
 if __name__ == '__main__':
     """running the app"""
