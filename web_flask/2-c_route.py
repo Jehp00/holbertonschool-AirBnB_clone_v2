@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module app route Flask
+Module route to C <text>
 """
 
 from flask import Flask
@@ -30,6 +30,7 @@ def c_text(text):
     can change the text and the URL anytime"""
     new_text = text.replace('_', ' ')
     return f"C {new_text}"
+
 
 if __name__ == '__main__':
     """running the app"""
