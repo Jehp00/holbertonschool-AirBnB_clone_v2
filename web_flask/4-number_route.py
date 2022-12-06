@@ -37,6 +37,7 @@ def python_text(text="is cool"):
     can change the text and the URL anytime"""
     return "Python {}".format(text.replace("_", " "))
 
+
 @app.route('/number/<int:n>')
 def number_n(n):
     """return a number if th parameter is a number with a messege"""
