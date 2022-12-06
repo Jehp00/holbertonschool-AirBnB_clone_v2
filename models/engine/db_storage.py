@@ -26,7 +26,7 @@ classes = {'User': User,
            'Review': Review}
 
 
-class DBStorage:
+class DBStorage():
     __engine = None
     __session = None
 
@@ -69,3 +69,7 @@ class DBStorage:
         Session1 = sessionmaker(bind=self.__engine, expire_on_commit=False)
         Session2 = scoped_session(Session1)
         self.__session = Session2()
+
+    def close(self):
+        self.__session = sessionmaker()
+        self.__session.remove()
