@@ -19,13 +19,15 @@ def index():
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
-    """index to web to print a messege running the host and port
+    """route to web to print a messege running the host and port
     on the web second address (URL)"""
     return "HBNB"
 
 
 @app.route('/c/<text>', strict_slashes=False)
 def c_text(text):
+    """route to page c is something, using the variable text we
+    can change the text and the URL anytime"""
     new_text = text.replace('_', ' ')
     return f"C {new_text}"
 
