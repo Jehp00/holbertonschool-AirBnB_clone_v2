@@ -71,5 +71,5 @@ class DBStorage():
         self.__session = Session2()
 
     def close(self):
-        self.__session = sessionmaker()
+        Session = sessionmaker(bind=self.__engine, expire_on_commit=False)
         self.__session.remove()
