@@ -72,4 +72,4 @@ class DBStorage:
 
     def close(self):
         """calls the methos remove()"""
-        self.__session.remove()
+        self.__session.close()
