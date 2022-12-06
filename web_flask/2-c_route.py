@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 """
-Module route to C <text>
+Module route to C <text> with Flask
 """
-
-
 from flask import Flask
 
 
