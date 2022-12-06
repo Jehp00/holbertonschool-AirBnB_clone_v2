@@ -27,6 +27,7 @@ class State(BaseModel, Base):
         @property
         def cities(self):
             from models import storage
+            from models.city import City
             """getter for list of cities"""
             city_list = []
             all_cities = storage.all(City)
