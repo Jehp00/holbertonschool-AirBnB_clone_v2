@@ -29,7 +29,7 @@ def hbnb():
 def c_text(text):
     """route to page c is something, using the variable text we
     can change the text and the URL anytime"""
-    new_text = text.replace('_', ' ')
+    new_text = text.replace("_", " ")
     return f"C {new_text}"
 
 
