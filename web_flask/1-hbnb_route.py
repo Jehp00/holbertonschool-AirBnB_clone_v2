@@ -16,6 +16,7 @@ def index():
     on the web address (URL)"""
     return "Hello HBNB!"
 
+
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
     """index to web to print a messege running the host and port
