@@ -13,7 +13,7 @@ app = Falsk(__name__)
 @app.route('/states_list', strict_slashes=False)
 def states_list():
     """list states in html file"""
-    new_states = storage.all(State)
+    new_states = storage.all("State")
     return render_tamplate("7-states_list.html", new_states=new_states)
 
 
