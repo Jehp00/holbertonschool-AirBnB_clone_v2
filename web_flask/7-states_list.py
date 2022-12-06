@@ -10,7 +10,7 @@ from models import storage
 """object flask"""
 app = Flask(__name__)
 
-@app.route('/states_list', strict_slashes=False)
+@app.route("/states_list", strict_slashes=False)
 def states_list():
     """list states in html file"""
     new_states = storage.all(State)
