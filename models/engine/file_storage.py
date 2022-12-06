@@ -69,4 +69,5 @@ class FileStorage:
         FileStorage.__objects = new_dict
 
     def close(self):
+        """call the reload method"""
         self.reload()
