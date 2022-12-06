@@ -52,6 +52,7 @@ def num_templeates(n):
 
 @app.route('/number_odd_or_even/<int:n>')
 def number_odd_or_even(n):
+    """change the html file if n is even or odd """
     return render_template('6-number_odd_or_even.html', n=n)
 
 if __name__ == '__main__':
