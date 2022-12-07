@@ -5,6 +5,7 @@ Module list states on index
 
 from flask import Flask, render_tamplate
 from models import storage
+from models.state import State
 
 
 """object flask"""
