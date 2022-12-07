@@ -11,17 +11,18 @@ from models import storage
 app = Flask(__name__)
 
 
-@app.route("/states_list", strict_slashes=False)
-def states_list():
-    """list states in html file"""
-    new_states = storage.all(State)
-    return render_template("7-states_list.html", new_states=new_states)
-
-
 @app.teardown_appcontext
 def teardown(exc):
     """close the session"""
     storage.close()
+
+
+@app.route("/states_list", strict_slashes=False)
+def states_list():
+    """list states in html file"""
+    states_obj = [s for s in storage.all("State").values()]
+    return render_template("7-states_list.html", states_obj=states_obj)
+
 
 if __name__ == '__main__':
     """run the app flask"""
