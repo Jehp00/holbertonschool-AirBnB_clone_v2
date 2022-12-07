@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 Module list states on index
 """
