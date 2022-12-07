@@ -15,7 +15,7 @@ app = Flask(__name__)
 def states_list():
     """list states in html file"""
     new_states = storage.all("State")
-    return render_tamplate("7-states_list.html", new_states=new_states)
+    return render_template("7-states_list.html", new_states=new_states)
 
 
 @app.teardown_appcontext
