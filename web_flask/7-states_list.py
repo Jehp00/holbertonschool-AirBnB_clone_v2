@@ -3,7 +3,7 @@
 Module list states on index
 """
 
-from flask import Flask, render_tamplate
+from flask import Flask, render_template
 from models import storage
 
 
@@ -16,7 +16,6 @@ def states_list():
     """list states in html file"""
     new_states = storage.all("State")
     return render_tamplate("7-states_list.html", new_states=new_states)
-
 
 
 @app.teardown_appcontext
