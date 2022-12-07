@@ -1,32 +1,40 @@
+
 #!/usr/bin/python3
 """
-Module list states on index
+script starts Flask web app
+    listen on 0.0.0.0, port 5000
+    routes: /:                    display "Hello HBNB!"
+            /hbnb:                display "HBNB"
+            /c/<text>:            display "C" + text (replace "_" with " ")
+            /python/<text>:       display "Python" + text (default="is cool")
+            /number/<n>:          display "n is a number" only if int
+            /number_template/<n>: display HTML page only if n is int
+            /number_odd_or_even/<n>: display HTML page; display odd/even info
+            /states_list:         display HTML and state info from storage
+            /cities_by_states:    display HTML and state, city relations
 """
-
-from flask import Flask, render_template
 from models import storage
-from os import getenv
-from sqlalchemy.orm import relationship
-"""object flask"""
-app = Flask(_name_)
+from models import *
+from flask import Flask, render_template
+app = Flask(__name__)
+app.url_map.strict_slashes = False
 
 
 @app.teardown_appcontext
-def teardown(exc):
-    """close the session"""
+def tear_down(exc):
+    """after each request remove current SQLAlchemy session"""
     storage.close()
 
 
-@app.route('/cities_by_states', strict_slashes = False)
+@app.route('/cities_by_states')
 def cities_by_states():
     """
        fetch sorted states to insert into html in UL tag
     """
-    cities_and_states = [sc for sc in storage.all("State").values()]
+    state_objs = [s for s in storage.all("State").values()]
     return render_template('8-cities_by_states.html',
-                           cities_and_states=cities_and_states)
+                           state_objs=state_objs)
 
 
-if _name_ == '_main_':
-    """run the app flask"""
-    app.run(host='0.0.0.0', port=5000, debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
