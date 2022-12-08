@@ -4,9 +4,9 @@
         <TITLE>HBNB</TITLE>
     </HEAD>
     <BODY>
-        {% if len(states_obj) == 0 %}
+        {% if !states_obj %}
         <H1>States</H1>
-        {% if states_obj %}
+        {% else %}
         <H1>States</H1>
         <UL>
             {% for states in states_obj | sort(attribute='name') %}
