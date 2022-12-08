@@ -4,6 +4,18 @@
         <TITLE>HBNB</TITLE>
     </HEAD>
     <BODY>
+
+        {% if states_obj %}
+        <H1>States</H1>
+        <UL>
+
+            {% for states in states_obj | sort(attribute='name') %}
+                <LI>{{ states.id }}: <B>{{ states.name }}</B></LI>
+            {% endfor %}
+
+        </UL>
+        {% endif %}
+
         {% if states %}
         <H1>State: {{ states.name }}</H1>
         <H3>Cities:</H3>
