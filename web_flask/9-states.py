@@ -9,13 +9,6 @@ app = Flask(__name__)
 app.url_map.strict_slashes = False
 
 
-@app.route("/states", strict_slashes=False)
-def states_list():
-    """list states in html file"""
-    states_obj = [s for s in storage.all("State").values()]
-    return render_template("9-states.html", states_obj=states_obj)
-
-
 @app.route('/states/<id>', strict_slashes=False)
 def states_id(id):
     """fetch sorted states with its id's to insert into html in UL"""
