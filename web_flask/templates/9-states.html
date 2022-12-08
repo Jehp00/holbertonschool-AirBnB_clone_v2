@@ -15,6 +15,10 @@
         </UL>
         {% endif %}
 
+        {% if states_obj == 0 %}
+        <H1>States</H1>
+        {% endif %}
+
         {% if states %}
         <H1>State: {{ states.name }}</H1>
         <H3>Cities:</H3>
