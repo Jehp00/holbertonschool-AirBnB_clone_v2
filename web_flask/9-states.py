@@ -22,7 +22,7 @@ def cities_by_states():
        fetch sorted states to insert into html in UL tag
     """
     state_objs = [s for s in storage.all("State").values()]
-    return render_template('8-cities_by_states.html',
+    return render_template('9-states.html',
                            state_objs=state_objs)
 
 
