@@ -9,12 +9,6 @@ app = Flask(__name__)
 app.url_map.strict_slashes = False
 
 
-@app.teardown_appcontext
-def tear_down(exc):
-    """after each request remove current SQLAlchemy session"""
-    storage.close()
-
-
 @app.route("/states", strict_slashes=False)
 def states_list():
     """list states in html file"""
@@ -32,7 +26,7 @@ def cities_by_states():
                            state_objs=state_objs)
 
 
-@app.route('/states/<id>')
+@app.route('/states/<id>', strict_slashes=False)
 def states_id(id):
     """fetch sorted states with its id's to insert into html in UL"""
     states = None
@@ -40,6 +34,13 @@ def states_id(id):
         if state.id == id:
             states = state
     return render_template("9-states.html", states=states)
+
+
+
+@app.teardown_appcontext
+def tear_down(exc):
+    """after each request remove current SQLAlchemy session"""
+    storage.close()
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
