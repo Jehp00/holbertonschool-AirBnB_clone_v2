@@ -16,16 +16,6 @@ def states_list():
     return render_template("7-states_list.html", states_obj=states_obj)
 
 
-@app.route('/cities_by_states')
-def cities_by_states():
-    """
-       fetch sorted states to insert into html in UL tag
-    """
-    state_objs = [s for s in storage.all("State").values()]
-    return render_template('9-states.html',
-                           state_objs=state_objs)
-
-
 @app.route('/states/<id>', strict_slashes=False)
 def states_id(id):
     """fetch sorted states with its id's to insert into html in UL"""
