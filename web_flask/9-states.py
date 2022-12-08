@@ -32,7 +32,7 @@ def cities_by_states():
                            state_objs=state_objs)
 
 
-@app.route('/states/<int:id>')
+@app.route('/states/<id>')
 def states_id(id):
     """fetch sorted states with its id's to insert into html in UL"""
     states = None
