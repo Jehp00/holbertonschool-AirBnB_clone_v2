@@ -4,14 +4,14 @@
         <TITLE>HBNB</TITLE>
     </HEAD>
     <BODY>
+        {% if len(states_obj) == 0 %}
+        <H1>States</H1>
         {% if states_obj %}
         <H1>States</H1>
         <UL>
-
             {% for states in states_obj | sort(attribute='name') %}
                 <LI>{{ states.id }}: <B>{{ states.name }}</B></LI>
             {% endfor %}
-
         </UL>
         {% endif %}
 
